@@ -40,7 +40,7 @@ public:
 private:
 	int* arr;
 	int size;
-	int index{};
+	int index;
 };
 
 int main()
