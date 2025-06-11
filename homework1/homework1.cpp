@@ -8,6 +8,7 @@ public:
 		if (size > 0)
 		{
 			this->size = size;
+			this->index = 0;
 			arr = new int[this->size];
 		}
 		else throw std::exception("Incorrect size!");
@@ -15,7 +16,6 @@ public:
 
 	void add_element(int el)
 	{
-		static int index{};
 		if (index < size)
 		{
 			arr[index] = el;
@@ -35,12 +35,12 @@ public:
 
 	~smart_array()
 	{
-		if (arr != nullptr) arr = nullptr;
 		delete[] arr;
 	}
 private:
 	int* arr;
 	int size;
+	int index{};
 };
 
 int main()

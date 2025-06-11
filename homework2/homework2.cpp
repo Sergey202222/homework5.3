@@ -38,11 +38,17 @@ public:
 	{
 		if (this->arr != nullptr) this->arr = nullptr;
 		delete[] this->arr;
-		this->size = smart_arr.size;
 		this->arr = new int[this->size];
 		for (int index{}; index < this->size; ++index)
 		{
-			this->arr[index] = smart_arr.arr[index];
+			if (index < this->size)
+			{
+				this->arr[index] = smart_arr.arr[index];
+			}
+			else
+			{
+				break;
+			}
 		}
 		return *this;
 	}
